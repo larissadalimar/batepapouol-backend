@@ -147,7 +147,7 @@ setInterval(removeUsers, 15000)
 
 async function removeUsers(){
     try {
-        const users = await db.collection("participants").find({lastStatus: { $lt : Date.now() - 10}}).toArray()
+        const users = await db.collection("participants").find({lastStatus: { $lt : Date.now() - 1000}}).toArray()
 
         await db.collection("participants").deleteMany({lastStatus: { $lt : Date.now() - 10000}})
 
